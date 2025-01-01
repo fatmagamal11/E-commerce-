@@ -1,0 +1,32 @@
+<div class="mt-2">
+    <div class="col-4 my-4">
+        <label for=""> categories :</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedCategory" (change)="changeSelection()">
+            <option value="All" selected>All</option>
+            <option [value]="category" *ngFor="let category of categories;let i=index">{{category}}</option>
+        </select>
+    </div>
+    <div>
+        <app-spinner></app-spinner>
+
+    </div>
+    <div class="row row-cols-3 row-cols-md-3 g-4 ">
+        <div class="col-md-4 col-sm-12"  *ngFor="let product of filteredProducts">
+            <div class="card" >
+                <img [src]="product.image" class="card-img-top" alt="productImage" style="height: 320px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.title}}</h5>
+                    <p class="card-text" >
+                       {{product.description}}
+                    </p>
+                    <h6>price :<span class="price ">
+                            {{product.price}}$
+                        </span> </h6>
+                    <button >Add To Cart</button>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+</div>

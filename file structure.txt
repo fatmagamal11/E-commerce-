@@ -1,0 +1,30 @@
+user :
+	-products	
+			components:
+				-all products
+				-products details
+			services :
+				-product.service
+	
+	-carts	
+			components:
+				-cart
+			services :
+				-cart.service
+	-shared	
+			components:
+				-navbar
+				-select
+			services :
+				-shared.service
+
+Errors Type :
+		-400 ==> Incorrect Data Body
+		-401 ==> Un Authorized
+		-403 ==> Cors Origin
+		-404 ==> Incorrect Path or URL
+		-409 ==> Duplicated Parameters
+		-500 ==> Internal Server Error
+
+Success :
+		-200 ==> Success 
