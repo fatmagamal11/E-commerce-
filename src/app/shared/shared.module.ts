@@ -3,26 +3,31 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
-import { SpinnerComponent } from './components/spinner/spinner.component'; // Import Toastr module
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SelectComponent } from './components/select/select.component'; // Import Toastr module
+import { FormsModule } from '@angular/forms';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SelectComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
-    BrowserModule,
     RouterModule,
-    HttpClientModule,
-    ToastrModule.forRoot(),
+    FormsModule
   ],
   exports: [
+    FormsModule,
+    SelectComponent,
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CardComponent
   ]
 
 })

@@ -1,0 +1,36 @@
+
+.card-img-top{
+    height: 190px;
+  }
+.price {
+  background-color: rgb(236, 125, 28);
+  border-radius: 5px;
+  padding: 3px;
+  margin: 5px;
+}
+p {
+  overflow: hidden;
+    height: 138px;
+}
+.card-title {
+    overflow: hidden;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(179, 162, 162);
+  text-align: center;
+}
+button {
+  border: none;
+  border-radius: 5px;
+  margin: 10px auto;
+  width: 58%;
+  padding: 5px;
+  background-color: antiquewhite;
+}
+input{
+  width: 39%;
+  border: red solid;
+  border-radius: 7px;
+  margin: 2px;
+  padding: 4px;
+}

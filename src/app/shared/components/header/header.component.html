@@ -1,12 +1,51 @@
-<nav>
-<div class="container">
-    <div class="content">
-        <h2 class="logo">Market</h2>
-        <ul>
-            <li routerLink='/'>Products</li>
-            <li routerLink="/cart">Cart</li>
-        </ul>
-    </div>
-</div>
 
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="right">
+           <div> <a class="navbar-brand" routerLink="/">Market</a></div>
+           <div> <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button></div>
+        </div>
+        <div class="collapse navbar-collapse left" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/all-product">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                        routerLink="/cart">Cart</a>
+                </li>
+                <li routerLink="/auth/login" (click)="logOut()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24"><g fill="none"
+                            stroke="#fff" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"><path
+                                stroke-dasharray="36" stroke-dashoffset="36"
+                                d="M12 4h-7c-0.55 0 -1 0.45 -1 1v14c0 0.55 0.45 1 1 1h7"><animate
+                                    fill="freeze"
+                                    attributeName="stroke-dashoffset" dur="0.5s"
+                                    values="36;0" /></path><path
+                                stroke-dasharray="14" stroke-dashoffset="14"
+                                d="M9 12h11.5"><animate fill="freeze"
+                                    attributeName="stroke-dashoffset"
+                                    begin="0.6s" dur="0.2s"
+                                    values="14;0" /></path><path
+                                stroke-dasharray="6" stroke-dashoffset="6"
+                                d="M20.5 12l-3.5 -3.5M20.5 12l-3.5 3.5"><animate
+                                    fill="freeze"
+                                    attributeName="stroke-dashoffset"
+                                    begin="0.8s" dur="0.2s"
+                                    values="6;0" /></path></g></svg>
+
+                </li>
+            </ul>
+
+        </div>
+    </div>
 </nav>

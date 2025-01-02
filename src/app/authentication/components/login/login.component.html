@@ -1,1 +1,61 @@
-<p>login works!</p>
+
+<div class="grid align__item">
+
+    <div class="register">
+
+        <h2>Sign Up</h2>
+
+        <form #formField="ngForm" (submit)="login(formField)" class="form">
+
+            <div class="form__field">
+                <input #username="ngModel" type="email" required
+                    pattern="^[a-zA-Z][a-zA-Z0-9._]{2,15}$"
+                    [(ngModel)]="loginBody.username" name="username"
+                    placeholder="info@mailaddress.com">
+            </div>
+            @if(username.invalid && username.touched){
+            <div class="error">
+                @if(username.errors?.['required']){
+                    
+                    <div>User Name Required</div>
+                }
+                @if(username.errors?.['pattern']){
+
+                    <div>Invalid User Name.<br>
+                        Username must start with a letter and be 3-16 characters long, including letters, numbers, dots, or underscores.
+                    </div>
+                }
+
+            </div>
+            }
+            <div class="form__field">
+                <input name="password" required #password="ngModel"
+                    pattern="^[a-zA-Z0-9^_]{1,16}$"
+                    [(ngModel)]="loginBody.password" type="password"
+                    placeholder="••••••••••••">
+            </div>
+            @if(password.invalid && password.touched){
+                <div class="error">
+                    @if(password.errors?.['required']){
+                        
+                        <div>password Required</div>
+                    }
+                    @if(password.errors?.['pattern']){
+    
+                        <div>password must At least one lowercase letter, one uppercase
+                            letter, one number,one special character.<br>
+                            Minimum 8 characters, combining all the above.</div>
+                    }
+    
+                </div>
+                }
+            <div class="form__field">
+                <input type="submit" value="Sign Up"
+                    [disabled]="formField.invalid">
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

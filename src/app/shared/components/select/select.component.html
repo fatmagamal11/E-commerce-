@@ -1,0 +1,7 @@
+<div class="col-4 my-5">
+    <label class="my-2"> {{title}} </label>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption" (change)="changeSelection()">
+        <option value="All" selected>All</option>
+        <option [value]="Element" *ngFor="let Element of Elements;let i=index">{{Element}}</option>
+    </select>
+</div>
