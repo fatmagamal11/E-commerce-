@@ -4,6 +4,7 @@ import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
 import { ToastrService } from 'ngx-toastr';
 import { SelectedCategoryService } from '../../services/selected-category.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-all-products',
@@ -16,10 +17,10 @@ export class AllProductsComponent implements OnInit {
   spinner: boolean = false;
   titleForAllProduct: string = 'categories :'
   categories: string[] = []
-  cartProducts:  {item:IProduct,quantity:string}[] = []
+  cartProducts: { item: IProduct, quantity: string }[] = []
 
   @Input() selectedCategory: string = 'All'
-  @Input() clickedProduct:  {item:IProduct,quantity:string} = {} as  {item:IProduct,quantity:string}
+  @Input() clickedProduct: { item: IProduct, quantity: string } = {} as { item: IProduct, quantity: string }
 
   constructor(private _ProductsService: ProductsService,
     private _CategoriesService: CategoriesService,
@@ -32,22 +33,28 @@ export class AllProductsComponent implements OnInit {
     this.getProducts();
     this.getCategories()
   }
-  addCountProduct(select:string){
+  addCountProduct(select: string) {
     console.log(select)
   }
-  addClickedProduct(selectedProductFromChild: {item:IProduct,quantity:string}) {
+  addClickedProduct(selectedProductFromChild: { item: IProduct, quantity: string }) {
     this.clickedProduct = selectedProductFromChild
-    let idOfProduct=this.clickedProduct?.['item'].id
+    let idOfProduct = this.clickedProduct?.['item'].id
     console.log(this.clickedProduct)
     if ("cart" in localStorage) {
-      this.cartProducts=JSON.parse(localStorage.getItem("cart")!) 
-      let checkedProductExist= this.cartProducts.find( product=>product.item.id==idOfProduct)
-      console.log(checkedProductExist)
-      // if(!checkedProductExist){
+      this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
+      let checkedProductExist = this.cartProducts.find(product => product.item.id == idOfProduct)
+      if (checkedProductExist) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "element exist before!",
+        });
+      }
+      else {
+        this.cartProducts.push(this.clickedProduct)
+        localStorage.setItem("cart", JSON.stringify(this.cartProducts))
+      }
 
-      // }
-      this.cartProducts.push(this.clickedProduct)
-      localStorage.setItem("cart", JSON.stringify(this.cartProducts))
     }
     else {
       this.cartProducts.push(this.clickedProduct)

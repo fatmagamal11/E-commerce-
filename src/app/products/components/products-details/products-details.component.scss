@@ -1,0 +1,31 @@
+.container{
+    padding: 70px 5px 0px;
+    display: flex;
+    justify-content: space-around;
+}
+.container .img{
+    text-align: center;
+    width: 40%;
+    height: 400px;
+}
+.container .img img{
+    width: 70%;
+}
+.container .details{
+    width: 60%;
+}
+.label{
+    color: #730909;
+    font-size: 20px;
+    font-weight: bold;
+}
+button{
+    border: solid #730909;
+    border-radius: 5px;
+    background: #8b0a0a;
+    color: beige;
+    margin: 10px;
+    padding: 5px;
+    width: 35%;
+    font-size: 20px;
+}

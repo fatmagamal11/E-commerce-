@@ -7,11 +7,11 @@ import { LoginComponent } from './authentication/components/login/login.componen
 import { authGuard } from './authentication/guards/auth.guard';
 
 const routes: Routes = [
-  {path:"",redirectTo:"all-product",pathMatch:'full'},
-  {path:"all-product",component:AllProductsComponent ,canActivate:[authGuard]},
-  {path:"product-detail",component:ProductsDetailsComponent ,canActivate:[authGuard]},
-  {path:"cart",component:CartsComponent ,canActivate:[authGuard]},
+  {path:"",redirectTo:"/auth/login",pathMatch:'full'},
   {path:"auth/login",component:LoginComponent },
+  {path:"all-product",component:AllProductsComponent ,canActivate:[authGuard]},
+  {path:"product-details/:id",component:ProductsDetailsComponent ,canActivate:[authGuard]},
+  {path:"cart",component:CartsComponent ,canActivate:[authGuard]},
 
 ];
 

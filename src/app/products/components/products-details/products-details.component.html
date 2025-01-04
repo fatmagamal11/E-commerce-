@@ -1,1 +1,17 @@
-<p>products-details works!</p>
+
+
+<app-spinner *ngIf="loading"></app-spinner>
+<div class="container" *ngIf="!loading">
+    <div class="img">
+<img [src]="product.image" [alt]="product.title"><br>
+<button (click)="back()">back</button>
+</div>
+<div class="details">
+    <h2 class="title">{{product.title}}</h2>
+    <h4> <span class="label">Category : </span>  {{product.category}}</h4>
+    <h4> <span class="label"> Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span>  {{product.price}} $</h4>
+    <p> <span class="label"> Description :</span>   <br>{{product.description}}</p>
+    <p> <span class="label"> Rate :</span>  {{product.rating.rate}}</p>
+    <p> <span class="label"> Count :</span>  {{product.rating.count}}</p>
+</div>
+</div>

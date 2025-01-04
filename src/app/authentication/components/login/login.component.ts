@@ -26,7 +26,7 @@ export class LoginComponent {
     this._LoginService.login( formField.value).subscribe({
       next:(token)=>{
         localStorage.setItem('token',JSON.stringify(token) )
-        this._Router.navigateByUrl('/')
+        this._Router.navigateByUrl('/all-product')
         this._ToastrService.success("Login Successfully","Welcome ...!")
       },
       error:(err)=>{
