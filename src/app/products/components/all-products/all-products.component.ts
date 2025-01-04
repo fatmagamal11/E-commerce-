@@ -39,7 +39,6 @@ export class AllProductsComponent implements OnInit {
   addClickedProduct(selectedProductFromChild: { item: IProduct, quantity: string }) {
     this.clickedProduct = selectedProductFromChild
     let idOfProduct = this.clickedProduct?.['item'].id
-    console.log(this.clickedProduct)
     if ("cart" in localStorage) {
       this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
       let checkedProductExist = this.cartProducts.find(product => product.item.id == idOfProduct)

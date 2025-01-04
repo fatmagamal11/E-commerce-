@@ -1,2 +1,47 @@
-<p>carts works!</p>
-<!-- <app-spinner></app-spinner> -->
+<div class="head">
+  <h1>Shopping Cart :</h1>
+  <div class="clear" (click)="clearCart()">
+    <p>
+      Clear All Cart Shopping
+    </p>
+  </div>
+</div>
+<table class="zigzag">
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
+  <thead>
+    <tr ><td colspan="2">    <h6 class="NumberOfProducts">There Exist <span>{{cartItems.length}}</span> Items in Cart</h6>
+    </td></tr>
+    <tr>
+      <th class="header">Image</th>
+      <th class="header">Name</th>
+      <th class="header">Price</th>
+      <th class="header">Quantity</th>
+      <th class="header">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let cartItem of cartItems; let i=index">
+      <td (click)="showDetails(cartItem.item.id)">
+        <img [src]="cartItem.item.image" [alt]="cartItem.item.title"></td>
+      <td (click)="showDetails(cartItem.item.id)">{{cartItem.item.title}}</td>
+      <td (click)="showDetails(cartItem.item.id)">{{cartItem.item.price}} $</td>
+      <td>
+        <i class="fas fa-minus" (click)="decreaceQuantity(i)"></i>
+        <input type="number" name="quantity" #quantity (change)="changeNumber(i,quantity)"
+          [value]="cartItem.quantity" [(ngModel)]="cartItem.quantity">
+        <i class="fa-solid fa-plus" (click)="increaceQuantity(i)"></i>
+      </td>
+      <td>{{cartItem.item.price * +cartItem.quantity}} $</td>
+      <td><button class="delete" (click)="delete(i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<div class="order">
+  <p class="order-now" (click)="order()">Order Now</p>
+  <p class="total"> <span> Total :</span> {{total}}</p>
+
+</div>

@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { IProduct } from './../../../interfaces/Iproduct.intrface';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-card',
@@ -10,20 +11,28 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  countDisplay=false
+  countDisplay = false
   @Input() cardObject: IProduct = {} as IProduct
-  @Output() onCardClick: EventEmitter< {item:IProduct,quantity:string}>
+  @Output() onCardClick: EventEmitter<{ item: IProduct, quantity: string }>
 
-  constructor(private _Router:Router){
-    this.onCardClick= new EventEmitter< {item:IProduct,quantity:string}>()
+  constructor(private _Router: Router) {
+    this.onCardClick = new EventEmitter<{ item: IProduct, quantity: string }>()
   }
 
-  addToCart(clickedCardObject: IProduct,countOfProduct:string='0') {
-    this.countDisplay=false
-    this.onCardClick.emit({item:clickedCardObject,quantity:countOfProduct})
+  addToCart(clickedCardObject: IProduct, countOfProduct: string = '0') {
+    if (countOfProduct == ''|| countOfProduct=="0") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You Must Enter Quantity",
+      });
+    } else {
+      this.countDisplay = false
+      this.onCardClick.emit({ item: clickedCardObject, quantity: countOfProduct })
+    }
   }
 
-  showDetails(id:number){
-    this._Router.navigateByUrl(`/product-details/${id}`)
+  showDetails(id: number) {
+    this._Router.navigateByUrl(`/user/product-details/${id}`)
   }
 }

@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
+
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './components/select/select.component'; // Import Toastr module
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 
 
 @NgModule({
@@ -20,14 +20,14 @@ import { CardComponent } from './components/card/card.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     FormsModule,
     SelectComponent,
     HeaderComponent,
     SpinnerComponent,
-    CardComponent
+    CardComponent,
   ]
 
 })

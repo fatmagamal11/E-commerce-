@@ -8,15 +8,26 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './authentication/components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ProductsModule } from './products/products.module';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { AuthComponent } from './layouts/auth/auth.component';
+import { AdminComponent } from './layouts/admin/admin.component';
+import { UserComponent } from './layouts/user/user.component';
+import { CartsModule } from './carts/carts.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AuthComponent,
+    AdminComponent,
+    UserComponent
   ],
   imports: [
+    CartsModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -24,7 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ToastrModule.forRoot(),
     ProductsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
+    DatePipe
   ],
   providers: [],
   bootstrap: [AppComponent]

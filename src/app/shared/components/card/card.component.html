@@ -1,16 +1,16 @@
-<div class="card" >
-    <div  (click)="showDetails(cardObject.id)" title="Click To Show Details">
+<div class="card">
+    <div (click)="showDetails(cardObject.id)" title="Click To Show Details">
 
         <img [src]="cardObject.image" class="card-img-top" alt="productImage"
             style="height: 320px;">
-            <div class="card-body">
-                <h5 class="card-title">{{cardObject.title}}</h5>
-        <p class="card-text">
-            {{cardObject.description}}
-        </p>
-        <h6>price :<span class="price ">
-                {{cardObject.price}}$
-            </span> </h6>
+        <div class="card-body">
+            <h5 class="card-title">{{cardObject.title}}</h5>
+            <p class="card-text">
+                {{cardObject.description}}
+            </p>
+            <h6>price :<span class="price ">
+                    {{cardObject.price}}$
+                </span> </h6>
         </div>
     </div>
     <div class="card-body">

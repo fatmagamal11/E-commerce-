@@ -1,0 +1,115 @@
+h1 {
+  color: #c00;
+  font-family: sans-serif;
+  font-size: 2em;
+  margin-bottom: 0;
+  width: 50%;
+}
+.head{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.head .clear p{
+  font-size: 20px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgb(155 80 80);
+  color: #eeeeee;
+  text-align: end;
+  margin: 10px;
+  padding: 5px;
+}
+.head .clear h6{
+  color: black;
+}
+
+table {
+  font-family: sans-serif;
+  th,
+  td {
+    padding: 0.25em 0.5em;
+    text-align: left;
+    &:nth-child(2) {
+      text-align: center;
+    }
+  }
+  td {
+    height: 35px;
+    text-align: center;
+    background-color: #eee;
+     h6 span{
+      font-weight: 700;
+      color: #c00;
+      font-size: 20px;
+    }
+    img {
+      width: 65px;
+      border-radius: 54px;
+    }
+    i {
+      font-size: 20px;
+      background-color: #703333;
+      color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 5px;
+    }
+    input {
+      width: 50%;
+      border: none;
+      padding: 5px;
+    }
+  }
+  th {
+    background-color: #703333;
+    color: #fff;
+    height: 58px;
+    text-align: center;
+  }
+}
+
+.zigzag {
+  border-collapse: separate;
+  border-spacing: 0.25em 1em;
+  width: 100%;
+  tbody tr:nth-child(odd) {
+    transform: rotate(2deg);
+  }
+  thead tr,
+  tbody tr:nth-child(even) {
+    transform: rotate(-2deg);
+  }
+}
+.delete{
+  border-radius: 5px;
+  color: #eeeeee;
+  border: none;
+  background-color: #bc2f2f;
+}
+p{
+  margin-top: 10px;
+}
+hr{
+  color: #c97777;
+}
+.order{
+  font-weight: 900;
+  font-size: 23px;
+  .total{
+    float: right;
+    span{
+      background-color: #f3e6e6;
+      padding: 5px;
+    }
+  }
+  .order-now{
+  float: right;
+  margin: 0px 25px;
+  border-radius: 20px;
+  background-color: #8dde9b;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+}
