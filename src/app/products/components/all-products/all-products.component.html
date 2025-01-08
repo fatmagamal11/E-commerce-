@@ -1,5 +1,5 @@
 <div class="mt-2">
-  <app-select [title]="titleForAllProduct"[Elements]="categories" (OnSelectedChange)="selectionChanged($event)"></app-select>
+  <app-select [allShow]="true" [title]="titleForAllProduct"[Elements]="categories" [colWidth]="'4'" (OnSelectedChange)="selectionChanged($event)" [marginDiv]="'5'" [marginLabel]="'2'"></app-select>
     <div>
         <app-spinner *ngIf="spinner"></app-spinner>
     </div>

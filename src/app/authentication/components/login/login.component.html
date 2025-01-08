@@ -1,6 +1,8 @@
 
 <div class="grid align__item">
-    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#cc0000"
+        type="ball-grid-pulse" [fullScreen]="true"><p style="color: white">
+            Loading... </p></ngx-spinner>
     <div class="register">
 
         <h2>Sign Up</h2>
@@ -16,14 +18,15 @@
             @if(username.invalid && username.touched){
             <div class="error">
                 @if(username.errors?.['required']){
-                    
-                    <div>User Name Required</div>
+
+                <div>User Name Required</div>
                 }
                 @if(username.errors?.['pattern']){
 
-                    <div>Invalid User Name.<br>
-                        Username must start with a letter and be 3-16 characters long, including letters, numbers, dots, or underscores.
-                    </div>
+                <div>Invalid User Name.<br>
+                    Username must start with a letter and be 3-16 characters
+                    long, including letters, numbers, dots, or underscores.
+                </div>
                 }
 
             </div>
@@ -35,22 +38,28 @@
                     placeholder="••••••••••••">
             </div>
             @if(password.invalid && password.touched){
-                <div class="error">
-                    @if(password.errors?.['required']){
-                        
-                        <div>password Required</div>
-                    }
-                    @if(password.errors?.['pattern']){
-    
-                        <div>password must At least one lowercase letter, one uppercase
-                            letter, one number,one special character.<br>
-                            Minimum 8 characters, combining all the above.</div>
-                    }
-    
-                </div>
+            <div class="error">
+                @if(password.errors?.['required']){
+
+                <div>password Required</div>
                 }
+                @if(password.errors?.['pattern']){
+
+                <div>password must At least one lowercase letter, one uppercase
+                    letter, one number,one special character.<br>
+                    Minimum 8 characters. <br> combining all the above.</div>
+                }
+
+            </div>
+            }
+            <div class="mb-3 form-check">
+                <input [(ngModel)]="checked" name="checked" type="checkbox"
+                    class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Login As
+                    Admin</label>
+            </div>
             <div class="form__field">
-                <input type="submit" value="Sign Up"
+                <input type="submit" value="Sign In"
                     [disabled]="formField.invalid">
             </div>
 

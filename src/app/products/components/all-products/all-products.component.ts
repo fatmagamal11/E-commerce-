@@ -1,5 +1,5 @@
-import { IProduct } from './../../../interfaces/Iproduct.intrface';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { IProduct } from '../../../Models/Iproduct.intrface';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
 import { ToastrService } from 'ngx-toastr';
@@ -33,9 +33,7 @@ export class AllProductsComponent implements OnInit {
     this.getProducts();
     this.getCategories()
   }
-  addCountProduct(select: string) {
-    console.log(select)
-  }
+  
   addClickedProduct(selectedProductFromChild: { item: IProduct, quantity: string }) {
     this.clickedProduct = selectedProductFromChild
     let idOfProduct = this.clickedProduct?.['item'].id
@@ -47,6 +45,7 @@ export class AllProductsComponent implements OnInit {
           icon: "error",
           title: "Oops...",
           text: "element exist before!",
+          
         });
       }
       else {

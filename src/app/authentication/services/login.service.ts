@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IToken } from '../../interfaces/itoken';
-import { ILogin } from '../../interfaces/ILogin';
+import { IToken } from '../../Models/itoken';
+import { ILogin } from '../../Models/Login';
 
 @Injectable({
   providedIn: 'root'

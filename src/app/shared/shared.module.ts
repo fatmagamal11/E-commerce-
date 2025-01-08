@@ -5,9 +5,11 @@ import { RouterModule } from '@angular/router';
 
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './components/select/select.component'; // Import Toastr module
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
-import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
+import { ModalComponent } from './components/modal/modal.component';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -15,14 +17,20 @@ import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
     HeaderComponent,
     SpinnerComponent,
     SelectComponent,
-    CardComponent
+    CardComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-  ],
+    NgbRatingModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule  ],
   exports: [
+    ReactiveFormsModule,
+    NgbRatingModule,
+    ModalComponent,
     FormsModule,
     SelectComponent,
     HeaderComponent,

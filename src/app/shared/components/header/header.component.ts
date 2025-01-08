@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -8,11 +8,15 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Input() headerName:string=''
+  @Input() rootLink:string=''
+  @Input() productsLink:string=''
+  @Input() cartLink:string=''
+  
   headerDisplay:boolean=true
   constructor(private _ActivatedRoute: ActivatedRoute,private router: Router){
     console.log(this._ActivatedRoute.snapshot)
     console.log(this.router.events)
-    // console.log(this._ActivatedRoute?.snapshot['_routerState'])
   }
 
   logOut(){

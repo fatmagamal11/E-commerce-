@@ -11,11 +11,34 @@
             <h6>price :<span class="price ">
                     {{cardObject.price}}$
                 </span> </h6>
+              
+                <ng-template #starTemplate let-fill="fill">
+                    <i class="bi bi-star" style="position: relative; display: inline-block; color: #d3d3d3; font-size: 2rem;">
+                      <i
+                        class="bi bi-star-fill filled"
+                        *ngIf="fill > 0"
+                        [ngStyle]="{ width: fill + '%' }"
+                        style="color: gold; position: absolute; top: 0; left: 0; overflow: hidden;"
+                      ></i>
+                    </i>
+                  </ng-template>
+                  
+                  <ngb-rating
+                    [(rate)]="cardObject.rating.rate"
+                    [starTemplate]="starTemplate"
+                    [readonly]="true"
+                    [max]="5"
+                    [ariaValueText]="ariaValueText"
+                  ></ngb-rating>
+                  
+                  <hr />
+                 
         </div>
     </div>
     <div class="card-body">
-        <button *ngIf="!countDisplay" (click)="countDisplay=true">Add To
-            Cart</button>
+        <button *ngIf="!countDisplay" (click)="countDisplay=true">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Add To Cart</button>
         <div *ngIf="countDisplay">
             <input placeholder="Count" type="number" #productNumber>
             <button (click)="addToCart(cardObject,productNumber.value)">Add

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CartsComponent } from './components/carts/carts.component';
-import { NgxLoadingModule } from 'ngx-loading';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
+import {  NgxSpinnerModule } from 'ngx-spinner';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
     CartsComponent
   ],
   imports: [
-CommonModule,FormsModule,NgxSpinnerModule
+CommonModule,FormsModule,NgxSpinnerModule,NgbRatingModule
 ]
 })
 export class CartsModule { }

@@ -1,0 +1,68 @@
+ <div class="container">
+    <div class="modal-header">
+        <div class="text">
+            Add Product
+        </div>
+        <div>
+            <button type="button" class="btn-close" aria-label="Close"
+                (click)="modal.dismiss('Cross click')"></button>
+        </div>
+    </div>
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#cc0000"
+        type="ball-grid-pulse" [fullScreen]="true"><p style="color: white">
+            Loading... </p></ngx-spinner>
+    <div class="modal-body">
+        <form [formGroup]="formFields">
+            <div class="form-row">
+                <div class="input-data">
+                    <input name="title" formControlName="title" type="text"
+                        required>
+                    <div class="underline"></div>
+                    <label for>Product Name</label>
+                </div>
+                <div class="input-data">
+                    <input name="price" type="text" formControlName="price"
+                        required>
+                    <div class="underline"></div>
+                    <label for>Product Price</label>
+                </div>
+            </div>
+            <div class="form-row">
+
+                <div class="input-data textarea">
+                    <textarea rows="8" cols="80" name="description" required
+                        formControlName="description"></textarea>
+                    <br />
+                    <div class="underline"></div>
+                    <label for>Product Description</label>
+                    <br />
+
+                </div>
+
+            </div>
+            <div class="form-row w-100">
+                       <div class="row">
+                        <app-select [allShow]="false" [Elements]="categories" (OnSelectedChange)="recieveSelectedCat($event)" [title]="title" [colWidth]="'12'" [marginDiv]="'0'" [marginLabel]="'0'"></app-select>
+                        <div class="underline"></div>
+                       </div>
+            </div>
+            <div class="form-row">
+
+                <label class="w-30 label" for>Product Image</label>
+                <div class="input-data w-70">
+                    <input type="file" (change)="onFileSelected($event)"
+                        accept="image/*" name="image" required
+                        formControlName="image">
+                </div>
+                <div class="underline"></div>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+                (click)="addProduct()" [disabled]="!formFields.valid">Add Product</button>
+            <button type="button" class="btn btn-secondary"
+                (click)="modal.close('Close click')"
+                (click)="close()">Close</button>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
-import { IProduct } from '../../../interfaces/Iproduct.intrface';
+import { IProduct } from '../../../Models/Iproduct.intrface';
 
 @Component({
   selector: 'app-products-details',
@@ -42,5 +42,8 @@ export class ProductsDetailsComponent implements OnInit {
   }
   back() {
     this._Location.back()
+  }
+  ariaValueText(current: number, max: number): string {
+    return `${current.toFixed(2)} out of ${max} hearts`;
   }
 }

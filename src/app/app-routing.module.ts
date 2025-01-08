@@ -7,6 +7,9 @@ import { LoginComponent } from './authentication/components/login/login.componen
 import { authGuard } from './authentication/guards/auth.guard';
 import { AuthComponent } from './layouts/auth/auth.component';
 import { UserComponent } from './layouts/user/user.component';
+import { AdminComponent } from './layouts/admin/admin.component';
+import { ProductsAdminComponent } from './products/components/products-admin/products-admin.component';
+import { CartsAdminComponent } from './carts/components/carts-admin/carts-admin.component';
 
 const routes: Routes = [
   {
@@ -18,30 +21,36 @@ const routes: Routes = [
     path: 'auth',
     component: AuthComponent,
     children: [
-      { path: '',  redirectTo: '/auth/login', pathMatch: 'full' },
+      { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
     ],
   },
- {
-  path:"user",
-  component:UserComponent,
-  children:[
-    {
-      path:"",redirectTo:"/all-product",pathMatch:'full'
-    },
-    {
-      path:"all-product",component:AllProductsComponent
-    },
-    {path:"all-product",component:AllProductsComponent ,canActivate:[authGuard]},
-  {path:"product-details/:id",component:ProductsDetailsComponent ,canActivate:[authGuard]},
-  {path:"cart",component:CartsComponent ,canActivate:[authGuard]},
-  ]
- }
-  // {path:"",redirectTo:"/auth/login",pathMatch:'full'},
-  // {path:"all-product",component:AllProductsComponent ,canActivate:[authGuard]},
-  // {path:"product-details/:id",component:ProductsDetailsComponent ,canActivate:[authGuard]},
-  // {path:"cart",component:CartsComponent ,canActivate:[authGuard]},
-
+  {
+    path: "user",
+    component: UserComponent,
+    children: [
+      {
+        path: "", redirectTo: "/products", pathMatch: 'full'
+      },
+      { path: "products", component: AllProductsComponent, canActivate: [authGuard] },
+      { path: "product-details/:id", component: ProductsDetailsComponent, canActivate: [authGuard] },
+      { path: "cart", component: CartsComponent, canActivate: [authGuard] },
+    ]
+  },
+  {
+    path: "admin",
+    component: AdminComponent,
+    children: [
+      {
+        path: "", redirectTo: "/products", pathMatch: 'full'
+      },
+      {
+        path: "products", component: ProductsAdminComponent,canActivate: [authGuard] 
+      },
+      { path: "product-details/:id", component: ProductsDetailsComponent, canActivate: [authGuard] },
+      { path: "cart", component: CartsAdminComponent, canActivate: [authGuard] },
+    ]
+  }
 ];
 
 @NgModule({

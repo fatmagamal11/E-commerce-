@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, output, SimpleChanges } from '@angular/core';
-import { CategoriesService } from '../../../products/services/categories.service';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-select',
@@ -11,8 +10,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SelectComponent implements OnInit, OnChanges {
 
+  @Input() allShow: boolean =false
   @Input() title: string = ''
-  @Input() Elements: string[] = []
+  @Input() marginDiv: string = ''
+  @Input() marginLabel: string = ''
+  @Input() colWidth: string = ''
+  @Input({required:true}) Elements: string[] = []
   selectedOption: string = 'All'
 
   // 1 ) Event definition

@@ -3,7 +3,7 @@
         <!-- Right Section -->
         <div class="d-flex justify-content-between align-items-center w-100">
             <!-- Brand -->
-            <a class="navbar-brand" routerLink="/user/all-product">Market</a>
+            <a class="navbar-brand" routerLink="/{{rootLink}}">{{headerName}}</a>
             <!-- Toggler Button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,11 +16,12 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <!-- Products Link -->
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/user/all-product">Products</a>
+                    <a class="nav-link" routerLink="/{{productsLink}}">Products</a>
                 </li>
                 <!-- Cart Link -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/user/cart">Cart</a>
+                    
+                    <a class="nav-link active" aria-current="page" routerLink="/{{cartLink}}">Cart</a>
                 </li>
                 <!-- Logout Button -->
                 <li class="nav-item">

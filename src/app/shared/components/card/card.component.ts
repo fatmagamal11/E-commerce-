@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { IProduct } from './../../../interfaces/Iproduct.intrface';
+import { IProduct } from '../../../Models/Iproduct.intrface';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import Swal from 'sweetalert2';
 
@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
   standalone: false,
 
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrl: './card.component.scss',
+ 
 })
 export class CardComponent {
   countDisplay = false
@@ -19,6 +20,10 @@ export class CardComponent {
     this.onCardClick = new EventEmitter<{ item: IProduct, quantity: string }>()
   }
 
+ 
+  ariaValueText(current: number, max: number): string {
+    return `${current.toFixed(2)} out of ${max} hearts`;
+  }
   addToCart(clickedCardObject: IProduct, countOfProduct: string = '0') {
     if (countOfProduct == ''|| countOfProduct=="0") {
       Swal.fire({

@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    <div class="head-left"> Products </div>
+    <div class="add-product">
+      <ng-template let-modal #content>
+        <app-modal [modal]="modal" (onModalClosed)="modalClosed()" [categories]="categories"></app-modal>
+      </ng-template>
+      
+      <button (click)="modalShow(content)">Add Product</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <app-spinner *ngIf="loading"></app-spinner>
+
+    <div class="container" *ngIf="!loading">
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-3">Image</div>
+          <div class="col col-3"> Name</div>
+          <div class="col col-3">Category</div>
+          <div class="col col-3">Price</div>
+        </li>
+        <li class="table-row" *ngFor="let product of products" (click)="showDetails(product.id)" title="Click To Show Details">
+          <div class="col col-3"><img src="{{product.image}}" alt></div>
+          <div class="col col-3">{{product.title}}</div>
+          <div class="col col-3">{{product.category}}</div>
+          <div class="col col-3">{{product.price}}$</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>

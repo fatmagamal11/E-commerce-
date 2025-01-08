@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../../../interfaces/Iproduct.intrface';
+import { IProduct } from '../../../Models/Iproduct.intrface';
 import { Router } from '@angular/router';
-import { ICartOrderBody } from '../../../interfaces/cartBody';
+import { ICartOrderBody } from '../../../Models/cartBody';
 import { DatePipe } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
@@ -12,18 +12,19 @@ import { NgxSpinnerService } from 'ngx-spinner';
   standalone: false,
   templateUrl: './carts.component.html',
   styleUrl: './carts.component.scss',
-  providers:[DatePipe]
+  providers: [DatePipe]
 })
 export class CartsComponent implements OnInit {
   cartItems: { item: IProduct, quantity: string }[] = []
   total: number = 0
-orderBody:ICartOrderBody={}as ICartOrderBody
+
+  orderBody: ICartOrderBody = {} as ICartOrderBody
 
   constructor(private _Router: Router,
     private datePipe: DatePipe,
-    private _CartService:CartService,
-    private _ToastrService:ToastrService,
-  private spinner: NgxSpinnerService) { }
+    private _CartService: CartService,
+    private _ToastrService: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getCartProducts()
@@ -77,12 +78,12 @@ orderBody:ICartOrderBody={}as ICartOrderBody
       this.getTotal()
     }
   }
-  order(){
-    const productIdQuantity = this.cartItems.map(product => ({productId:product.item.id,quantity:product.quantity}));
-    this.orderBody.products=productIdQuantity
-    let date=new Date()
-    this.orderBody.date=this.datePipe.transform(date,'yyyy-MM-dd')!
-    this.orderBody.userId=1
+  order() {
+    const productIdQuantity = this.cartItems.map(product => ({ productId: product.item.id, quantity: product.quantity }));
+    this.orderBody.products = productIdQuantity
+    let date = new Date()
+    this.orderBody.date = this.datePipe.transform(date, 'yyyy-MM-dd')!
+    this.orderBody.userId = 1
     this.createCartCall(this.orderBody)
   }
   createCartCall(orderBody: ICartOrderBody) {

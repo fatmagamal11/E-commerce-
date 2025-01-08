@@ -13,5 +13,26 @@
     <p> <span class="label"> Description :</span>   <br>{{product.description}}</p>
     <p> <span class="label"> Rate :</span>  {{product.rating.rate}}</p>
     <p> <span class="label"> Count :</span>  {{product.rating.count}}</p>
+    <p> <span class="label"> Rate :</span>  {{product.rating.rate}}</p>
+    <hr />
+    <ng-template #starTemplate let-fill="fill">
+        <i class="bi bi-star" style="position: relative; display: inline-block; color: #d3d3d3; font-size: 2rem;">
+          <i
+            class="bi bi-star-fill filled"
+            *ngIf="fill > 0"
+            [ngStyle]="{ width: fill + '%' }"
+            style="color: gold; position: absolute; top: 0; left: 0; overflow: hidden;"
+          ></i>
+        </i>
+      </ng-template>
+      
+      <ngb-rating
+        [(rate)]="product.rating.rate"
+        [starTemplate]="starTemplate"
+        [readonly]="true"
+        [max]="5"
+        [ariaValueText]="ariaValueText"
+      ></ngb-rating>
+      
 </div>
 </div>

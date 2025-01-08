@@ -17,7 +17,9 @@ html {
 body {
   background-color: $base-bgcolor;
   color: $base-color;
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family, $base-font-family-fallback;
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height}
+      $base-font-family,
+    $base-font-family-fallback;
   margin: 0;
   min-height: 100%;
 }
@@ -28,7 +30,6 @@ body {
   flex-direction: row;
 
   &__item {
-
     &--start {
       align-self: flex-start;
     }
@@ -36,20 +37,16 @@ body {
     &--end {
       align-self: flex-end;
     }
-
   }
-
 }
 
 .site {
-
   &__main {
   }
 
   &__logo {
     margin-bottom: 2rem;
   }
-
 }
 
 $input-placeholder-color: #7e8ba3;
@@ -61,26 +58,22 @@ input {
   &::placeholder {
     color: $input-placeholder-color;
   }
-
 }
 
 .form {
-
   &__field {
     margin-bottom: 1rem;
   }
 
   input {
     outline: 0;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
 
     &[type="email"],
     &[type="password"] {
       width: 100%;
     }
-
   }
-
 }
 
 $grid-max-width: 25rem;
@@ -108,18 +101,37 @@ svg {
 $link-color: #7e8ba3;
 
 a {
-  color: $link-color
+  color: $link-color;
 }
 
 .register {
   box-shadow: 0 0 250px #000;
   text-align: center;
   padding: 4rem 2rem;
-margin: 60px auto;
+  margin: 60px auto;
+  .form-check {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+
+    input {
+      margin: 5px 17px 0px 5px;
+      color: #821b1b;
+      &:checked {
+        color: #fff;
+        background-color: #821b1b;
+      }
+      &:focus {
+        color: #fff;
+        outline: 0;
+        box-shadow: 0 0 4px 0.25rem #d64c4c;
+        background-color: #e35858;
+      }
+    }
+  }
   input {
     border: 1px solid #242c37;
     border-radius: 999px;
-    background-color: transparent;
     text-align: center;
 
     &[type="email"],
@@ -138,16 +150,14 @@ margin: 60px auto;
     }
 
     &[type="submit"] {
-      background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
+      background-image: linear-gradient(160deg, #440606 0%, #950b0b 100%);
       color: #fff;
-      margin-bottom: 6rem;
+      margin-bottom: 5rem;
       width: 100%;
     }
-
   }
-
 }
-.error{
-    color: red;
-    font-size: 10px;
+.error {
+  color: red;
+  font-size: 10px;
 }
